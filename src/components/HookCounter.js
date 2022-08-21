@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { decrement, increment } from '../redux/counter/Actions';
 
 const HookCounter = () => {
-    const count = useSelector((state) => state.value);
+    const count = useSelector((state) => state.counter.value);
     const dispatch = useDispatch();
 
-    const incrementHandler = (value) => {
-        dispatch(increment(value))
+    const incrementHandler = () => {
+        dispatch(increment())
     }
 
-    const decrementHandler = (value) => {
-        dispatch(decrement(value))
+    const decrementHandler = () => {
+        dispatch(decrement())
     }
 
     return (
