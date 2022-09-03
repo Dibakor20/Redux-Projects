@@ -1,7 +1,62 @@
-export const ADD_TODO = 'todo/addTodo';
-export const ALL_COMPLETE_TASK = 'todo/allCompleteTask';
-export const ALL_CLEAR_TASK = 'todo/allClearTask';
-export const TOGGLE_TODO = 'todo/toggleTodo';
-export const COLOR_SELECT = 'todo/colorSelect';
-export const STATUS_CHANGE = 'todo/statusChange';
-export const COLOR_CHANGE = 'todo/colorChange';
+import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType"
+
+export const addTodo = (todoText) => {
+    return {
+        type: ADD_TODO,
+        payload:todoText
+    }
+}
+
+export const toggleTodo = (id) => {
+    return {
+        type: TOGGLE_TODO,
+        payload:id
+    }
+}
+
+export const colorSelect = (todoId,color) => {
+    return {
+        type: COLOR_SELECT,
+        payload: {
+            todoId,
+            color
+        }
+    }
+}
+
+export const statusChange = (status) => {
+    return {
+        type: STATUS_CHANGE,
+        payload:
+            status
+    }
+}
+
+export const colorChange = (color,changeType) => {
+    return {
+        type: COLOR_CHANGE,
+        payload: {
+            color,
+            changeType
+        }
+    }
+}
+
+export const allCompleteTask = () => {
+    return {
+        type:ALL_COMPLETE_TASK,
+    }
+}
+
+export const allClearTask = () => {
+    return {
+        type:ALL_CLEAR_TASK,
+    }
+}
+
+export const removeTask = (todoId) => {
+    return {
+        type: REMOVE_TASK,
+        payload:todoId,
+    }
+}
