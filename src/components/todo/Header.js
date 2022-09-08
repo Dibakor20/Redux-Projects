@@ -4,6 +4,7 @@ import plusImage from "../../assets/images/plus.png";
 import tickImage from "../../assets/images/double-tick.png";
 import { useDispatch } from "react-redux/";
 import { addTodo,allClearTask,allCompleteTask} from "../../redux/todo/TodoAction";
+import addNewTodo from "../../redux/thunk/AddTodo";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Header = () => {
   };
   const handleSubmit = (e) => {
      e.preventDefault()
-    dispatch(addTodo(input));
+    dispatch(addNewTodo(input));
     setInput("");
   };
 
