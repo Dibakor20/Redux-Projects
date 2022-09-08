@@ -1,3 +1,4 @@
+export const LOADED_TODO = 'todo/loadedTodo'
 export const ADD_TODO = 'todo/addTodo';
 export const TOGGLE_TODO = 'todo/toggleTodo';
 export const COLOR_SELECT = 'todo/colorSelect';

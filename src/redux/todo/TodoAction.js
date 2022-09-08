@@ -1,4 +1,11 @@
-import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType"
+import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, LOADED_TODO, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType"
+
+export const loadedTodo = (todo) => {
+    return {
+        type: LOADED_TODO,
+        payload:todo
+    }
+}
 
 export const addTodo = (todoText) => {
     return {

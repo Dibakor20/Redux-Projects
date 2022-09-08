@@ -1,28 +1,20 @@
-import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType";
+import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, LOADED_TODO, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType";
 
 const todoState = {
-  todo: [
-    {
-      id: 1,
-      text: "Web Development",
-      completed: true,
-
-
-    },
-    {
-      id: 2,
-      text: "App Development",
-      completed: false,
-      color:"red"
-
-    },
-  ],
+  todo: [],
   status: "ALL",
   colors: [],
 };
 
 const todoReducers = (state = todoState, action) => {
   switch (action.type) {
+
+    case LOADED_TODO:
+      return {
+        ...state,
+        todo:action.payload
+      }
+
     case ADD_TODO:
 
       let task = {
