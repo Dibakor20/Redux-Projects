@@ -1,9 +1,23 @@
-import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, LOADED_TODO, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType"
+import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, EDIT_TASK, FIND_ID, IS_UPDATE, LOADED_TODO, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType"
 
 export const loadedTodo = (todo) => {
     return {
         type: LOADED_TODO,
         payload:todo
+    }
+}
+
+export const findTodoId = (todoId) => {
+    return {
+        type: FIND_ID,
+        payload:todoId
+    }
+}
+
+export const isTodoUpdate = (updateStatus) => {
+    return {
+        type: IS_UPDATE,
+        payload:updateStatus
     }
 }
 
@@ -58,6 +72,16 @@ export const allCompleteTask = () => {
 export const allClearTask = () => {
     return {
         type:ALL_CLEAR_TASK,
+    }
+}
+
+export const editTask = (todoId,text) => {
+    return {
+        type: EDIT_TASK,
+        payload: {
+            todoId,
+            text
+        }
     }
 }
 

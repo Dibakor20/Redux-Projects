@@ -1,9 +1,11 @@
-import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, LOADED_TODO, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType";
+import { ADD_TODO, ALL_CLEAR_TASK, ALL_COMPLETE_TASK, COLOR_CHANGE, COLOR_SELECT, EDIT_TASK, FIND_ID, IS_UPDATE, LOADED_TODO, REMOVE_TASK, STATUS_CHANGE, TOGGLE_TODO } from "./TodoActionType";
 
 const todoState = {
   todo: [],
   status: "ALL",
   colors: [],
+  editedId: 0,
+  isUpdate:false,
 };
 
 const todoReducers = (state = todoState, action) => {
@@ -14,9 +16,20 @@ const todoReducers = (state = todoState, action) => {
         ...state,
         todo:action.payload
       }
-
+    case FIND_ID:
+      console.log(action.payload)
+      return {
+        ...state,
+        editedId:action.payload
+      }
+    
+      case IS_UPDATE:
+        return {
+          ...state,
+          isUpdate:action.payload
+        }
+    
     case ADD_TODO:
-
       let task = {
         id: Math.round(Math.random() * 10000),
         text: action.payload,
@@ -28,7 +41,6 @@ const todoReducers = (state = todoState, action) => {
       };
     
     case TOGGLE_TODO:
-
       return {
         ...state,
        todo:state.todo.map((item, id) => {
@@ -44,7 +56,6 @@ const todoReducers = (state = todoState, action) => {
    
     
     case COLOR_SELECT:
-
       const { todoId } = action.payload;
       return {
         ...state,
@@ -80,6 +91,20 @@ const todoReducers = (state = todoState, action) => {
           }
         default:
           return state
+      }
+    
+    case EDIT_TASK:
+      return {
+        ...state,
+       todo:state.todo.map((item, id) => {
+          if (item.id !== action.payload.todoId) {
+            return item
+          }
+          return {
+            ...item,
+            text:action.payload.text,
+          };
+        })
       }
 
     case REMOVE_TASK:

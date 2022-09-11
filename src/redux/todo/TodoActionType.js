@@ -6,4 +6,7 @@ export const STATUS_CHANGE = 'todo/statusChange';
 export const COLOR_CHANGE = 'todo/colorChange';
 export const ALL_COMPLETE_TASK = 'todo/allCompleteTask';
 export const ALL_CLEAR_TASK = 'todo/allClearTask';
+export const EDIT_TASK = 'todo/editTask'
 export const REMOVE_TASK = 'todo/removeTask';
+export const FIND_ID = 'todo/findId';
+export const IS_UPDATE = 'todo/isUpdate'
